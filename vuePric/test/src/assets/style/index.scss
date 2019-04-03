@@ -1,0 +1,88 @@
+.app-main {
+  margin: 15px;
+  flex: 1;
+  // overflow: hidden;
+}
+[hidden] {
+  display: none;
+}
+.app-wrapper {
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.container {
+  padding:20px;
+}
+.container-wrap {
+  width: 1200px;
+  margin: 0 auto;
+  flex:1;
+  padding:20px 0;
+}
+
+.main--flex {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  .side {
+    width: 16%;
+    min-width: 200px;
+  }
+  .main {
+    width: calc(84% - 10px);
+  }
+}
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.float-none {
+  float: none !important;
+}
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+.label {
+    font-size: 12px;
+    line-height: 18px;
+    color: #fff;
+    padding: 1px 7px;
+    border-radius: 9px;
+}
+.label--success {
+  background: linear-gradient(to right, #11E2A7, #07D99E);
+}
+.label--gray {
+  background: #B3B3B3;
+}
+.label--primary {
+  background: linear-gradient(to right, #ff8700, #ff6500);
+}
+.label--danger {
+  background: linear-gradient(to right, #FF5D5D, #FF4747);
+}
+
+.breadcrumb {
+  margin-bottom: 10px;
+  background: #fff;
+  padding:20px 20px;
+  position: relative;
+  &::before{
+    content:'';
+    width: 4px;
+    height: 14px;
+    background: #FE7622;
+    position:absolute;
+    left: 0;
+    top:20px;
+  }
+}
+

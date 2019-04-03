@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>promise 异步执行操作</h3>
+</body>
+</html>
+
+<script>
+// 回调函数式执行异步
+  // var a = function() {
+  //   console.log('a');
+  // };
+
+  // var b = function(call) {
+  //   call()
+  //   console.log('b');
+  // };
+
+  // var c = function() {
+  //   for(var i=0;i<100;i++){
+  //     console.log('c')
+  //   }  
+  // };
+  // a(b(c)); // 100个c -> b -> a
+
+// promise 异步执行
+  // var promise = new Promise(function(resolve, reject){
+  //   console.log('............');
+  //   resolve(); // 这是promise的一个机制，只有promise实例的状态变为resolved，才会会触发then回调函数
+  // });
+  // promise.then(function(){
+  //   for(var i=0;i<100;i++) {
+  //       console.log('c')
+  //   }    
+  // })
+  // .then(function(){
+  //     console.log('b')
+  // })
+  // .then(function(){
+  //     console.log('a')
+  // })
+
+
+// then方法会在所有同步任务执行完毕之后才会执行
+  // var promise = new Promise(function(resolve, reject) {
+  //   console.log('Promise instance');
+  //   resolve()
+  // });
+
+  // promise.then(function() {
+  //   console.log('resolved result');
+  // });
+  // for(var i=0;i<100;i++) {
+  // console.log(i);
+  // }
+
+
+// 两秒之后p1将reject给p2
+  // const p1 = new Promise(function (resolve, reject) {
+  //   console.log('2秒之后，调用返回p1的reject给p2');
+  //   setTimeout(reject, 3000, new Error('fail'))
+  // })
+
+  // const p2 = new Promise(function (resolve, reject) {
+  //     console.log('1秒之后，调用p1');
+  //     setTimeout(() => resolve(p1), 1000)
+  // })
+
+  // p2
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log(error))
+    // 两秒之后返回p1的resolve
+  // const p1 = new Promise(function (resolve, reject) {
+  //   console.log('2秒之后，调用返回p1的resolve给p2');
+  //   setTimeout(resolve, 3000, 'success')
+  // })
+
+  // const p2 = new Promise(function (resolve, reject) {
+  //   console.log('1秒之后，调用p1');
+  //   setTimeout(() => resolve(p1), 1000)
+  // })
+  // p2
+  //   .then(result => console.log(result))
+  //   .catch(error => console.log(error))
+
+// 要等内部的同步函数执行完毕之后才会执行resolve异步回调
+  // new Promise((resolve, reject) => {
+  //   console.log(1);
+  //   resolve(2);
+  //   console.log(3);
+  // }).then(result => {
+  //     console.log(result);
+  // });
+
+  // .all方法状态是由数组里的p1,p2,p3...共同决定的，其中有一个reject都会返回给promise
+  // let promise = Promise.all([p1, p2, p3])
+
+
+  // .race 就是谁快谁把值返回给promise
+  // promise.race([p1, p2, p3])
+</script>

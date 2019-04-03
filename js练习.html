@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  var arrays = [213,4,35,43,5,43]
+  var arrMap = arrays.map((value,index) => {
+    return value * 1.222
+  })
+  var bbb = []
+  var aaa = arrMap.forEach(value => {
+    bbb.push(value.toFixed(2))
+  })
+  var ccc = bbb.join(",")
+  var ddd = ccc.split(',')
+  var eee = ddd.filter((item,index) => {
+    return index
+  })
+  console.log(eee)
+</script>

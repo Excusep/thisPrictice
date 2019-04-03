@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>async确保了函数返回一个promise，即使其中包含非promise</h3>
+  <h3>await可以让JavaScript进行等待，直到一个promise执行并返回它的结果，JavaScript才会继续往下执行</h3>
+</body>
+</html>
+<script>
+async function f() {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('done!'), 5000)
+    })
+    let result = await promise // 直到promise返回一个resolve值（*）
+    alert(result) // 'done!' 
+}
+f()
+</script>

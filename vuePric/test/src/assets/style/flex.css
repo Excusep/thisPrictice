@@ -1,0 +1,71 @@
+/* 弹性盒子 */
+.flex{ display: flex; }
+.flex-1{
+  flex: 1;
+}
+.wrap{
+  flex-wrap: wrap;
+}
+.flex_c{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.flex_s{
+display: flex;
+align-items: center;
+justify-content: flex-start;
+}
+.flex_c_b{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.flex_c_e{
+display: flex;
+align-items: flex-end;
+flex-direction: column;
+justify-content:center;
+}
+.flex_a{
+display: flex;
+justify-content: space-around;
+}
+.flex_c_n{
+display: flex;
+align-items: center;
+}
+.flex_a_b{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.flex_column{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.flex_co_s{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: center;
+}
+.flex_co_b{
+display:flex;
+flex-direction: column;
+align-items:center; 
+}
+.flex_co_bet{
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+.flex_co_c{
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+align-items:center;
+}
+.align_r{ align-self: flex-end; }

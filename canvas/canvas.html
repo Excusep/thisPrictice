@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" style="background: rgba(53, 114, 206, 0.8);"></canvas>
+</body>
+<script type="text/javascript" src="./canvas/ball.js"></script>
+<script type="text/javascript" src="./canvas/utils.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var mouse = utils.captureMouse(canvas);
+
+        var balls = [];
+        var numBalls = 30,
+            minDist = 200;
+        // springAmount = 0.0005;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        //遍历实例化球，并初始化
+        for (var size, ball, i = 0; i < numBalls; i++) {
+            size = Math.random() * 10 + 2;
+            ball = new Ball(size, "#fff");
+            ball.x = Math.random() * canvas.width;
+            ball.y = Math.random() * canvas.height;
+            //随机向量
+            ball.vx = Math.random() * 6 - 3;
+            ball.vy = Math.random() * 6 - 3;
+            ball.mass = size;
+            balls.push(ball);
+        };
+
+        function spring(partA, partB) {
+            var dx = partB.x - partA.x,
+                dy = partB.y - partA.y,
+                dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < minDist) {
+                var alpha = 1 - dist / minDist;
+                ctx.strokeStyle = utils.colorToRGB("#ffffff", alpha);
+                ctx.beginPath();
+                ctx.moveTo(partA.x, partA.y);
+                ctx.lineTo(partB.x, partB.y);
+                ctx.stroke();
+            }
+        }
+
+        //移动的方法
+        function move(partA) {
+            partA.x += partA.vx;
+            partA.y += partA.vy;
+            if (partA.x > canvas.width) {
+                partA.x = 0;
+            } else if (partA.x < 0) {
+                partA.x = canvas.width;
+
+            }
+            if (partA.y > canvas.height) {
+                partA.y = 0;
+            } else if (partA.y < 0) {
+                partA.y = canvas.height;
+            }
+            for (var partB, i = 0, j = i; j < numBalls; j++) {
+                partB = balls[j];
+                spring(partA, partB);
+            }
+
+        }
+
+        //绘画方法
+        function draw(ball) {
+            ball.draw(ctx);
+        };
+        //实现绘画
+        (function drawFrame() {
+            window.requestAnimationFrame(drawFrame, canvas);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            balls.forEach(move);
+            balls.forEach(draw);
+        })();
+
+    }, false);
+</script>
+
+</html>
