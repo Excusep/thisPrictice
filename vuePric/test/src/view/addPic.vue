@@ -9,13 +9,24 @@
       <img v-if="imageUrl" :src="imageUrl" class="avatar">
       <i v-else class="el-icon-plus avatar-uploader-icon"></i>
     </el-upload>
+
+
+    <el-pagination
+      background
+      layout="prev, pager, next"
+      :total="6"
+      :page-size="5">
+    </el-pagination>
+    {{state|rankName}}
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
+      state: 2,
       upPic: "/src/assets",
       imageUrl: ''
     };
@@ -36,7 +47,9 @@ export default {
       }
       return isJPG && isLt2M;
     }
-  }
+  },
+  created() {
+  },
 }
 </script>
 

@@ -7,6 +7,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import echarts from 'echarts'
 
+// 全局引入filters.js
+import filters from './until/filters.js'
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
 Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 Vue.use(ElementUI)

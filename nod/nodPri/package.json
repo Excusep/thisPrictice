@@ -1,0 +1,19 @@
+{
+  "name": "nodpri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
