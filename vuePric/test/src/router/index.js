@@ -10,6 +10,8 @@ import World from '@/view/noFatherSon/World'
 import home from '@/view/noFatherSon/home'
 import callbackFun from '@/view/callbackFun'
 import addPic from '@/view/addPic'
+import father from '@/view/fatherSon/father'
+import son from '@/view/fatherSon/son'
 
 Vue.use(Router)
 
@@ -17,6 +19,16 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'father',
+      component: father
+    },
+    {
+      path: '/son',
+      name: 'son',
+      component: son
+    },
+    {
+      path: '/addPic',
       name: 'addPic',
       component: addPic
     },
